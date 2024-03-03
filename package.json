@@ -18,6 +18,7 @@
 		"@inlang/paraglide-js": "1.2.7",
 		"@inlang/paraglide-js-adapter-sveltekit": "^0.5.5",
 		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/adapter-node": "^4.0.1",
 		"@sveltejs/kit": "^2.5.2",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "^8.56.0",
