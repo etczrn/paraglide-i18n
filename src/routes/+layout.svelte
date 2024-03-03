@@ -9,6 +9,7 @@
 	} from '$paraglide/runtime';
 	import { ParaglideJS } from '@inlang/paraglide-js-adapter-sveltekit';
 	import { get } from 'svelte/store';
+	import '../app.css';
 
 	const labels: Record<AvailableLanguageTag, string> = {
 		en: '🇬🇧 English',
@@ -19,7 +20,6 @@
 		const { value } = e.target as HTMLSelectElement;
 		const canonicalPath = i18n.route(get(page).url.pathname);
 		const localisedPath = i18n.resolveRoute(canonicalPath, value as AvailableLanguageTag);
-		console.log({ canonicalPath, localisedPath });
 		goto(localisedPath);
 	};
 </script>
