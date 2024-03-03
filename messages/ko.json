@@ -1,5 +1,7 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"greeting": "SvelteKit에 오신 걸 환영합니다",
-	"visit": "공식문서를 읽기 위해 kit.svelte.dev 에 방문해보세요"
+	"visit": "공식문서를 읽기 위해 kit.svelte.dev 에 방문해보세요",
+	"about_button": "더 알아보기",
+	"about_title": "Sveltekit 더 알아보기"
 }

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import * as m from '$paraglide/messages';
+	import { languageTag } from '$paraglide/runtime';
 </script>
 
 <h1>{m.greeting()}</h1>
 <p>{m.visit()}</p>
-<!-- <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p> -->
+<a href="/about" hreflang={languageTag()}>{m.about_button()}</a>
