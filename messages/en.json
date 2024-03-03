@@ -1,0 +1,5 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"greeting": "Welcome to SvelteKit",
+	"visit": "Visit kit.svelte.dev to read the documentation"
+}
