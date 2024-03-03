@@ -2,6 +2,8 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import Logo from '$lib/components/Logo.svelte';
+	import PcLogo from '$lib/components/LogoPc.svelte';
+	import NavPopover from '$lib/components/NavPopover.svelte';
 	import { i18n } from '$lib/i18n';
 	import {
 		availableLanguageTags,
@@ -9,13 +11,16 @@
 		type AvailableLanguageTag
 	} from '$paraglide/runtime';
 	import Icon from '@iconify/svelte';
+	import { createPopover, melt } from '@melt-ui/svelte';
 	import { get } from 'svelte/store';
-	import { fly, slide } from 'svelte/transition';
+	import { fade, fly, slide } from 'svelte/transition';
 
 	const labels: Record<AvailableLanguageTag, string> = {
 		en: 'ENG',
 		ko: 'KOR'
 	};
+
+	const currentLang = languageTag();
 
 	type Menu = {
 		name: string;
@@ -50,6 +55,11 @@
 		{ name: 'JOIN US', href: 'join-us' }
 	];
 
+	const {
+		elements: { trigger, content },
+		states: { open }
+	} = createPopover();
+
 	let isSearchOpen = false;
 	let isMenuOpen = false;
 	let selected = '';
@@ -81,10 +91,51 @@
 	// TODO: isMenuOpen -> prevent window scroll
 </script>
 
-<nav class="fixed z-50 w-screen px-24 bg-white h-50 py-13">
+<nav class="fixed z-50 w-screen px-24 bg-white h-50 py-13 lg:h-74 lg:px-36 lg:py-21">
 	<div class="flex items-center justify-between">
-		<a href="/" hreflang={languageTag()} class="inline-block"><Logo /></a>
-		<div class="flex h-full gap-x-12">
+		<a href="/" hreflang={currentLang} class="inline-block">
+			<Logo class="lg:hidden" />
+			<PcLogo class="hidden lg:inline-block" />
+		</a>
+		<div class="items-center hidden h-full lg:flex text-17pxr">
+			{#each menus as { name, href, children }}
+				{#if href}
+					<a {href} hreflang={currentLang}>{name}</a>
+				{:else}
+					<NavPopover {name} {children} />
+				{/if}
+			{/each}
+			<a href="feed" hreflang={currentLang} class="px-8 py-5 mx-24 rounded-lg bg-anti-flash-white"
+				>SFOC FEED</a
+			>
+			<button class="w-24 h-24" on:click={handleSearchToggle}>
+				<Icon icon="mdi:magnify" class="w-full h-full" />
+			</button>
+			<div class="w-1 h-24 mx-24 bg-black" />
+			<button class="mr-20" use:melt={$trigger}>{labels[currentLang]}</button>
+			{#if open}
+				<div
+					use:melt={$content}
+					transition:fade={{ duration: 100 }}
+					class="z-50 w-60 rounded-[4px] bg-white p-5 shadow-sm"
+				>
+					{#each availableLanguageTags as langTag}
+						<button
+							class="mb-8 rounded-md shadow-lg px-13 py-11 min-w-140 text-15pxr hover:bg-violet-blue hover:text-white"
+							value={langTag}
+							on:click={handleLanguageChange}>{labels[langTag]}</button
+						>
+					{/each}
+				</div>
+			{/if}
+			<a
+				href="/donation"
+				hreflang={currentLang}
+				class="py-5 text-white rounded-lg bg-persian-blue px-17">Donate</a
+			>
+		</div>
+		<!-- TODO: make it responsive -->
+		<div class="flex h-full gap-x-12 lg:hidden">
 			<button class="w-24 h-24" on:click={handleSearchToggle}>
 				<Icon icon="mdi:magnify" class="w-full h-full" />
 			</button>
@@ -124,7 +175,7 @@
 					<div class="tracking-tighter pb-28">
 						<a
 							{href}
-							hreflang={languageTag()}
+							hreflang={currentLang}
 							on:click={() => handleSelectedChange(name)}
 							class={`${selected === name ? 'text-violet-blue' : ''}`}>{name}</a
 						>
@@ -143,7 +194,7 @@
 								{#each children as { name, href }}
 									<a
 										{href}
-										hreflang={languageTag()}
+										hreflang={currentLang}
 										class={`block text-lg ${selected === name ? 'text-violet-blue' : ''}}`}
 									>
 										{name}
@@ -156,7 +207,7 @@
 				{/if}
 			{/each}
 			<div class="tracking-tighter pb-28">
-				<a href="/feed" hreflang={languageTag()} class="px-8 py-6 rounded-lg bg-anti-flash-white"
+				<a href="/feed" hreflang={currentLang} class="px-8 py-6 rounded-lg bg-anti-flash-white"
 					>SFOC FEED</a
 				>
 			</div>
@@ -166,11 +217,11 @@
 				class={`font-semibold ${isLanguageOpen ? 'text-violet-blue' : ''}`}
 				on:click={handleLanguageToggle}
 			>
-				{labels[languageTag()]}
+				{labels[currentLang]}
 			</button>
 			<a
 				href="/donation"
-				hreflang={languageTag()}
+				hreflang={currentLang}
 				class="px-12 py-6 text-white rounded-lg bg-violet-blue">DONATE</a
 			>
 		</div>
