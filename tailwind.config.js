@@ -1,6 +1,7 @@
 const px0_10 = { ...Array.from(Array(11)).map((_, i) => `${i}px`) };
 const px0_100 = { ...Array.from(Array(101)).map((_, i) => `${i}px`) };
 const px0_200 = { ...Array.from(Array(201)).map((_, i) => `${i}px`) };
+const px0_300 = { ...Array.from(Array(301)).map((_, i) => `${i}px`) };
 
 const pxToRem = (px, base = 16) => `${px / base}rem`;
 
@@ -27,7 +28,7 @@ export default {
 			lineHeight: px0_100,
 			minWidth: px0_200,
 			minHeight: px0_200,
-			spacing: px0_200,
+			spacing: px0_300,
 			colors: {
 				'anti-flash-white': '#F4F3F0',
 				'light-silver': '#D9D9D9',
