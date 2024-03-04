@@ -14,6 +14,7 @@
 	import { createPopover, melt } from '@melt-ui/svelte';
 	import { get } from 'svelte/store';
 	import { fade, fly, slide } from 'svelte/transition';
+	import Link from './Link.svelte';
 
 	const labels: Record<AvailableLanguageTag, string> = {
 		en: 'ENG',
@@ -100,7 +101,7 @@
 		<div class="items-center hidden h-full lg:flex text-17pxr">
 			{#each menus as { name, href, children }}
 				{#if href}
-					<a {href} hreflang={currentLang}>{name}</a>
+					<Link {href}>{name}</Link>
 				{:else}
 					<NavPopover {name} {children} />
 				{/if}

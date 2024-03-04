@@ -24,10 +24,10 @@ devDependencies:
     version: 0.5.5(@sveltejs/kit@2.5.2)
   '@melt-ui/pp':
     specifier: ^0.3.0
-    version: 0.3.0(@melt-ui/svelte@0.74.4)(svelte@4.2.12)
+    version: 0.3.0(@melt-ui/svelte@0.75.2)(svelte@4.2.12)
   '@melt-ui/svelte':
-    specifier: ^0.74.4
-    version: 0.74.4(svelte@4.2.12)
+    specifier: ^0.75.2
+    version: 0.75.2(svelte@4.2.12)
   '@sveltejs/adapter-auto':
     specifier: ^3.0.0
     version: 3.1.1(@sveltejs/kit@2.5.2)
@@ -648,14 +648,14 @@ packages:
     resolution: {integrity: sha512-sSd1ZOcWOMvekFo0dFn/wP7SgEf9s6xjUBQBfl1NGDnFhcsGxLdqw7KPQhx662icQoz9GKfM4Xp3Xfa+y6TXAQ==}
     dev: true
 
-  /@melt-ui/pp@0.3.0(@melt-ui/svelte@0.74.4)(svelte@4.2.12):
+  /@melt-ui/pp@0.3.0(@melt-ui/svelte@0.75.2)(svelte@4.2.12):
     resolution: {integrity: sha512-b07Bdh8l2KcwKVCXOY+SoBw1dk9eWvQfMSi6SoacpRVyVmmfpi0kV4oGt3HYF0tUCB3sEmVicxse50ZzZxEzEA==}
     engines: {pnpm: '>=8.6.3'}
     peerDependencies:
       '@melt-ui/svelte': '>= 0.29.0'
       svelte: ^3.55.0 || ^4.0.0 || ^5.0.0-next.1
     dependencies:
-      '@melt-ui/svelte': 0.74.4(svelte@4.2.12)
+      '@melt-ui/svelte': 0.75.2(svelte@4.2.12)
       estree-walker: 3.0.3
       magic-string: 0.30.7
       svelte: 4.2.12
@@ -673,6 +673,21 @@ packages:
       focus-trap: 7.5.4
       nanoid: 5.0.6
       svelte: 4.2.12
+    dev: false
+
+  /@melt-ui/svelte@0.75.2(svelte@4.2.12):
+    resolution: {integrity: sha512-EZYH5iEzHs/CPsWqRlH6AnJ70sTuPB4llVK3ajafWig6I5q3qyGU8NIz4aozUssL0edf9BKmyDVAy6Vksy1fbA==}
+    peerDependencies:
+      svelte: '>=3 <5'
+    dependencies:
+      '@floating-ui/core': 1.6.0
+      '@floating-ui/dom': 1.6.3
+      '@internationalized/date': 3.5.2
+      dequal: 2.0.3
+      focus-trap: 7.5.4
+      nanoid: 5.0.6
+      svelte: 4.2.12
+    dev: true
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}

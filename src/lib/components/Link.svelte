@@ -6,6 +6,7 @@
 
 	export let href: HTMLAnchorElement['href'] = '';
 	export { className as class };
+	export let tabindex: HTMLAnchorElement['tabIndex'] = 0;
 </script>
 
-<a {href} {hreflang} class={className}><slot /></a>
+<a {href} {hreflang} class={className} {tabindex}><slot /></a>
