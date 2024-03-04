@@ -1,10 +1,9 @@
 <script lang="ts">
 	import type { Menu } from '$lib/types/menu';
 	import Icon from '@iconify/svelte';
-	import { createDialog, createMenubar, melt } from '@melt-ui/svelte';
+	import { createAccordion, createDialog, createMenubar, melt } from '@melt-ui/svelte';
 	import type { MeltEventHandler } from '@melt-ui/svelte/internal/types';
-
-	import { fly } from 'svelte/transition';
+	import { fly, slide } from 'svelte/transition';
 	import Link from './Link.svelte';
 	import MeltNavPopover from './MeltNavPopover.svelte';
 
@@ -49,6 +48,11 @@
 		states: { open }
 	} = createDialog({ closeOnOutsideClick: false });
 
+	const {
+		elements: { root, item, trigger: accordionTrigger, content: accordionContent, heading },
+		helpers: { isSelected }
+	} = createAccordion();
+
 	const handleToggle: MeltEventHandler<MouseEvent> = (e) => {
 		e.preventDefault();
 		open.update((open) => !open);
@@ -91,7 +95,33 @@
 					class="fixed right-0 z-50 w-full h-full pt-[calc(70px+50px)] pb-60 pl-77 bg-white top-50 focus:outline-none"
 					transition:fly={{ x: '100%', duration: 800, opacity: 1 }}
 				>
-					something here
+					{#each menus as { name, href, children }}
+						<div class="block font-medium tracking-tighter text-20pxr mb-28">
+							{#if href}
+								<Link {href}>{name}</Link>
+							{:else}
+								<div use:melt={$root}>
+									<div use:melt={$item}>
+										<button
+											use:melt={$accordionTrigger(name)}
+											class={`${$isSelected(name) ? 'text-violet-blue' : ''}`}
+										>
+											{name}
+										</button>
+										{#if $isSelected(name)}
+											<hr class="mt-12 mb-10" />
+											<div use:melt={$accordionContent(name)} transition:slide>
+												{#each children || [] as { name, href }}
+													<Link {href} class="block text-17pxr">{name}</Link>
+													<hr class="my-10" />
+												{/each}
+											</div>
+										{/if}
+									</div>
+								</div>
+							{/if}
+						</div>
+					{/each}
 				</div>
 			{/if}
 		</div>
