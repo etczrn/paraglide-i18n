@@ -37,7 +37,8 @@ export default {
 				'philippine-silver': '#B5B5B7',
 				'persian-blue': '#0A39C3',
 				'violet-blue': '#3C41BE',
-				'chinese-black': '#151515'
+				'chinese-black': '#151515',
+				'black-olive': '#3C3B38'
 			},
 			fontSize,
 			borderRadius: {
