@@ -45,6 +45,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource-variable/inter": "^5.0.17",
 		"bits-ui": "^0.18.6"
 	}
 }
