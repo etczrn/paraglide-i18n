@@ -38,7 +38,7 @@
 </script>
 
 <footer
-	class="w-screen p-24 font-medium tracking-tighter pt-26 pb-30 bg-anti-flash-white text-10pxr lg:px-36 lg:py-30 lg:relative lg:h-full lg:text-15pxr"
+	class="w-full p-24 font-medium tracking-tighter pt-26 pb-30 bg-anti-flash-white text-10pxr lg:px-36 lg:py-30 lg:relative lg:h-full lg:text-15pxr"
 >
 	<!-- name and social links -->
 	<div
@@ -66,7 +66,7 @@
 		<hr class="h-1 my-20 border-t-0 bg-neutral-400 bg-opacity-30 lg:my-24" />
 	{/each}
 	<!-- ohter links and copyright -->
-	<div class="flex justify-between lg:ml-370 lg:gap-x-12">
+	<div class="flex flex-col justify-between lg:flex-row lg:ml-370 lg:gap-x-12">
 		<div class="flex items-center h-full mb-10">
 			{#each links as { name, href }, i}
 				<Link {href}>{name}</Link>

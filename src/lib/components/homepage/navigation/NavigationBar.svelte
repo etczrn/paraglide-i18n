@@ -73,7 +73,7 @@
 	} = createDialog({ closeOnOutsideClick: false });
 
 	const {
-		elements: { root, item, trigger: accordionTrigger, content: accordionContent, heading },
+		elements: { root, item, trigger: accordionTrigger, content: accordionContent },
 		helpers: { isSelected }
 	} = createAccordion();
 
@@ -150,7 +150,7 @@
 			{#if $searchDrawerOpen}
 				<div
 					use:melt={$searchDrawerContent}
-					class="fixed left-0 z-50 w-full p-24 bg-white shadow-xl top-50 h-98 rounded-xl focus:outline-none lg:top-74 lg:p-35 lg:pt-20 lg:pr-30 lg:h-260 lg:flex lg:flex-col"
+					class="fixed left-0 z-50 w-full p-24 bg-white shadow-xl top-50 h-98 rounded-b-10 focus:outline-none lg:top-74 lg:p-35 lg:pt-20 lg:pr-30 lg:h-260 lg:flex lg:flex-col"
 					transition:slide={{ axis: 'y', duration: 400 }}
 				>
 					<div class="justify-between hidden mb-auto tracking-tighter lg:flex">
@@ -164,7 +164,7 @@
 					>
 						<input
 							type="text"
-							class="w-full h-full text-2xl border-none outline-none placeholder:text-philippine-silver focus:ring-offset-[none]"
+							class="w-full h-full text-2xl border-none outline-none placeholder:text-philippine-silver focus:ring-offset-none"
 							placeholder="Search"
 						/>
 						<button class="ml-10">

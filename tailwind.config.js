@@ -1,8 +1,9 @@
 const px0_10 = { ...Array.from(Array(11)).map((_, i) => `${i}px`) };
-const px0_100 = { ...Array.from(Array(101)).map((_, i) => `${i}px`) };
+// const px0_100 = { ...Array.from(Array(101)).map((_, i) => `${i}px`) };
 const px0_200 = { ...Array.from(Array(201)).map((_, i) => `${i}px`) };
 // const px0_300 = { ...Array.from(Array(301)).map((_, i) => `${i}px`) };
-const px0_400 = { ...Array.from(Array(401)).map((_, i) => `${i}px`) };
+// const px0_400 = { ...Array.from(Array(401)).map((_, i) => `${i}px`) };
+const px0_600 = { ...Array.from(Array(601)).map((_, i) => `${i}px`) };
 
 const pxToRem = (px, base = 16) => `${px / base}rem`;
 
@@ -26,18 +27,30 @@ export default {
 	theme: {
 		extend: {
 			borderWidth: px0_10,
-			lineHeight: px0_100,
+			// lineHeight: px0_100,
 			minWidth: px0_200,
 			minHeight: px0_200,
-			spacing: px0_400,
+			spacing: px0_600,
 			colors: {
 				'anti-flash-white': '#F4F3F0',
 				'light-silver': '#D9D9D9',
 				'philippine-silver': '#B5B5B7',
 				'persian-blue': '#0A39C3',
-				'violet-blue': '#3C41BE'
+				'violet-blue': '#3C41BE',
+				'chinese-black': '#151515'
 			},
-			fontSize
+			fontSize,
+			borderRadius: {
+				10: '10px',
+				15: '15px',
+				20: '20px'
+			},
+			ringOffsetColor: {
+				none: 'none'
+			},
+			lineHeight: {
+				fit: '1.3'
+			}
 		}
 	}
 };

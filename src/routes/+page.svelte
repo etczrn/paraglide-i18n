@@ -1,10 +1,16 @@
 <script lang="ts">
-	import * as m from '$paraglide/messages';
-	import { languageTag } from '$paraglide/runtime';
+	import { Newsletter } from '$lib/components/homepage';
 </script>
 
-<article class="hidden">
-	<h1>{m.greeting()}</h1>
-	<p>{m.visit()}</p>
-	<a href="/about" hreflang={languageTag()}>{m.about_button()}</a>
-</article>
+<!-- Research section -->
+
+<!-- Insights section -->
+
+<!-- Who we are section -->
+
+<!-- What we do section -->
+
+<!-- Our People section -->
+
+<!-- Newsletter section -->
+<Newsletter />
