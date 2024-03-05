@@ -37,21 +37,25 @@
 	];
 </script>
 
-<footer class="w-screen p-24 font-medium pt-26 pb-30 bg-anti-flash-white text-10pxr">
+<footer
+	class="w-screen p-24 font-medium tracking-tighter pt-26 pb-30 bg-anti-flash-white text-10pxr lg:px-36 lg:py-30 lg:relative lg:h-full lg:text-15pxr"
+>
 	<!-- name and social links -->
-	<div class="flex items-start justify-between mb-74">
-		<p class="text-15pxr">Solutions for Our Climate</p>
+	<div
+		class="flex items-start justify-between mb-74 lg:mb-0 lg:absolute lg:w-[calc(100%-36px-36px)]"
+	>
+		<p class="text-15pxr lg:text-24pxr">Solutions for Our Climate</p>
 		<div class="flex gap-x-12">
 			{#each socials as { name, href }}
 				<Link {href}>
-					<Icon icon={`fa-brands:${name}`} class="w-30 h-30" />
+					<Icon icon={`fa-brands:${name}`} class="w-30 h-30 lg:w-36 lg:h-36" />
 				</Link>
 			{/each}
 		</div>
 	</div>
 	<!-- detail -->
 	{#each details as { items }}
-		<div class="flex flex-col tracking-tighter gap-y-10">
+		<div class="flex flex-col gap-y-10 lg:ml-370 lg:gap-y-12 lg:mt-6 lg:max-w-2xl">
 			{#each items as { label, value }}
 				<div class="flex gap-x-8">
 					<p class="w-5/12">{label}</p>
@@ -59,16 +63,18 @@
 				</div>
 			{/each}
 		</div>
-		<hr class="h-1 my-20 border-t-0 bg-neutral-400 bg-opacity-30" />
+		<hr class="h-1 my-20 border-t-0 bg-neutral-400 bg-opacity-30 lg:my-24" />
 	{/each}
 	<!-- ohter links and copyright -->
-	<div class="flex items-center h-full mb-10">
-		{#each links as { name, href }, i}
-			<Link {href}>{name}</Link>
-			{#if i < links.length - 1}
-				<hr class="w-1 h-10 mx-14 bg-neutral-400 bg-opacity-30" />
-			{/if}
-		{/each}
+	<div class="flex justify-between lg:ml-370 lg:gap-x-12">
+		<div class="flex items-center h-full mb-10">
+			{#each links as { name, href }, i}
+				<Link {href}>{name}</Link>
+				{#if i < links.length - 1}
+					<hr class="w-1 h-10 mx-14 bg-neutral-400 bg-opacity-30 lg:h-20" />
+				{/if}
+			{/each}
+		</div>
+		<p>Copyright © SFOC. All Rights Reserved.</p>
 	</div>
-	<p>Copyright © SFOC. All Rights Reserved.</p>
 </footer>
