@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Footer } from '$lib/components/homepage';
+	import { BackToTopButton, Footer, NavigationBar } from '$lib/components/homepage';
 	import { i18n } from '$lib/i18n';
 	import '@fontsource-variable/inter';
 	import { ParaglideJS } from '@inlang/paraglide-js-adapter-sveltekit';
@@ -7,10 +7,12 @@
 </script>
 
 <ParaglideJS {i18n}>
+	<NavigationBar />
 	<main>
 		<slot />
 	</main>
 	<Footer />
+	<BackToTopButton />
 </ParaglideJS>
 
 <style>
