@@ -62,8 +62,24 @@
 		<div class="lg:flex lg:gap-x-12">
 			<!-- card -->
 			{#each researchArticles as article}
+				<!-- TODO: article card width should be dynamic -->
 				<ArticleCard {...article} />
 			{/each}
+		</div>
+		<!-- swiper control buttons -->
+		<div class="lg:flex lg:gap-x-18 lg:absolute lg:top-0 lg:right-0 lg:mt-54 lg:mr-36">
+			<button class="group">
+				<Icon
+					icon="material-symbols-light:arrow-circle-left-outline"
+					class="w-40 h-40 group-disabled:opacity-30"
+				/>
+			</button>
+			<button class="group">
+				<Icon
+					icon="material-symbols-light:arrow-circle-right-outline"
+					class="w-40 h-40 group-disabled:opacity-30"
+				/>
+			</button>
 		</div>
 	</div>
 </section>

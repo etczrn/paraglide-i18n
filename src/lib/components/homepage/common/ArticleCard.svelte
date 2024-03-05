@@ -22,7 +22,7 @@
 				class="lg:aspect-video lg:object-cover lg:rounded-15"
 			/>
 			<span
-				class="lg:tracking-normal lg:font-medium lg:text-white lg:rounded-md lg:bg-anti-flash-white lg:bg-opacity-20 lg:px-10 lg:py-6 lg:absolute lg:left-20 lg:top-20"
+				class="lg:tracking-normal lg:font-medium lg:text-white lg:rounded-md lg:bg-anti-flash-white lg:bg-opacity-20 lg:px-10 lg:py-6 lg:absolute lg:left-20 lg:top-20 lg:backdrop-blur-xl"
 				>{category}
 			</span>
 		</div>
