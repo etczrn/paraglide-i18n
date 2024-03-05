@@ -2,7 +2,6 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { i18n } from '$lib/i18n';
-	import type { Menu } from '$lib/types/menu';
 	import {
 		availableLanguageTags,
 		languageTag,
@@ -19,8 +18,9 @@
 	import type { MeltEventHandler } from '@melt-ui/svelte/internal/types';
 	import { get } from 'svelte/store';
 	import { fly, slide } from 'svelte/transition';
-	import Link from './Link.svelte';
-	import MeltNavPopover from './MeltNavPopover.svelte';
+	import { Link } from '../common';
+	import NavPopover from './Popover.svelte';
+	import type { Menu } from './type';
 
 	const menus: Menu[] = [
 		{
@@ -135,7 +135,7 @@
 					{:else if href}
 						<Link {href}>{name}</Link>
 					{:else}
-						<MeltNavPopover {name} {children} {createMenu} />
+						<NavPopover {name} {children} {createMenu} />
 					{/if}
 				{/each}
 			</div>

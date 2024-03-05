@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Menu } from '$lib/types/menu';
 	import { melt, type MenubarBuilders } from '@melt-ui/svelte';
-	import Link from './Link.svelte';
+	import { Link } from '../common';
+	import type { Menu } from './type';
 
 	export let name = '';
 	export let children: Menu[] = [];
