@@ -27,7 +27,7 @@
 	<h1 class="title">Research</h1>
 	<div class="articles">
 		<h2>New Research</h2>
-		<a href="/research">See all Research</a>
+		<a href="research">See all Research</a>
 		<!-- carousel buttons -->
 		<div class="button-group">
 			<button on:click={handlePrev}>&#60;</button>
@@ -56,6 +56,7 @@
 		</div>
 	</div>
 </section>
+<a href="tailwind">same component</a>
 
 <style>
 	section {
@@ -77,23 +78,29 @@
 	.articles {
 		grid-area: articles;
 		position: relative;
+		display: grid;
+		grid-template-areas:
+			'sub-title button-group'
+			'link .'
+			'carousel .';
 	}
 
 	.articles h2 {
 		letter-spacing: -0.05rem;
 		font-size: clamp(1rem, 5vw + 1rem, 1.75rem);
+		grid-area: sub-title;
 	}
 
 	.articles a {
 		background-color: #f4f3f0;
 		padding: 0.375em 0.5em;
+		grid-area: link;
+		grid-column: 1/-1;
 	}
 
 	.articles .button-group {
 		display: inline-flex;
-		position: absolute;
-		top: 0;
-		right: 0;
+		grid-area: button-group;
 	}
 
 	article {
@@ -107,6 +114,8 @@
 
 	.embla {
 		overflow: hidden;
+		grid-area: carousel;
+		grid-column: 1/-1;
 	}
 	.embla-container {
 		display: flex;
