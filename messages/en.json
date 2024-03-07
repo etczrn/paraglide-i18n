@@ -1,7 +1,3 @@
 {
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"greeting": "Welcome to SvelteKit",
-	"visit": "Visit kit.svelte.dev to read the documentation",
-	"about_button": "About",
-	"about_title": "About sveltekit"
+	"$schema": "https://inlang.com/schema/inlang-message-format"
 }
